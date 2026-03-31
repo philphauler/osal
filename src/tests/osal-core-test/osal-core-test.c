@@ -143,8 +143,15 @@ void task_test_stackptr_0(void)
     VarAddress   = (cpuaddr)&LocalVar;
     StackAddress = (cpuaddr)OSAL_STACKPTR_C(task_0_stack);
 
+    UtAssert_NONZERO(VarAddress);
+    UtAssert_NONZERO(StackAddress);
+
+    /* When address sanitizer is enabled, it overrides the stack with
+     * its own version that is instrumented for testing, so do not check it */
+#ifndef OSAL_UT_ASAN_ENABLED
     UtAssert_GT(cpuaddr, VarAddress, StackAddress);
     UtAssert_LT(cpuaddr, VarAddress, StackAddress + sizeof(task_0_stack));
+#endif
 }
 
 typedef struct
