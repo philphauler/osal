@@ -66,17 +66,23 @@ endif ()
 if (OSAL_CONFIG_INCLUDE_NETWORK)
     list(APPEND POSIX_IMPL_SRCLIST
         ../portable/os-impl-bsd-sockets.c   # Use BSD socket layer implementation
-        ../portable/os-impl-bsd-sockets-dns.c   # Use functions that invoke DNS
         ../portable/os-impl-posix-network-gethostname.c # Use POSIX-defined hostname implementation
         ../portable/os-impl-posix-network-gethostid.c # Use POSIX-defined hostid implementation
     )
-else()
+    if (OSAL_CONFIG_INCLUDE_DNS)
+        list(APPEND POSIX_IMPL_SRCLIST
+            ../portable/os-impl-bsd-sockets-dns.c   # Use functions that invoke DNS
+        )
+    else (OSAL_CONFIG_INCLUDE_DNS)
+        list(APPEND POSIX_IMPL_SRCLIST
+            ../portable/os-impl-bsd-sockets-no-dns.c    # Use basic impl without DNS
+        )
+    endif(OSAL_CONFIG_INCLUDE_DNS)
+else(OSAL_CONFIG_INCLUDE_NETWORK)
     list(APPEND POSIX_IMPL_SRCLIST
-        ../portable/os-impl-no-network-gethostname.c    # non-implemented versions of gethostname API
-        ../portable/os-impl-no-network-gethostid.c    # non-implemented versions of gethostid  API
         ../portable/os-impl-no-sockets.c    # non-implemented versions of all socket APIs
     )
-endif ()
+endif (OSAL_CONFIG_INCLUDE_NETWORK)
 
 if (OSAL_CONFIG_RWLOCK)
     list(APPEND POSIX_IMPL_SRCLIST
