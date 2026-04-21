@@ -118,7 +118,7 @@ int32 OS_ModuleLoad_Impl(const OS_object_token_t *token, const char *translated_
     dl_handle = dlopen(translated_path, RTLD_NOW | RTLD_GLOBAL);
     if (dl_handle == NULL)
     {
-        OS_DEBUG("Error loading shared library: %s\n", dlerror());
+        OS_DEBUG("loading shared library: %s\n", dlerror());
         status = OS_ERROR;
     }
     else if (dlinfo(dl_handle, RTLD_DI_UNRESOLVED, &unresolved) < 0)

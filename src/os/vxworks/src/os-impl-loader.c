@@ -85,7 +85,7 @@ int32 OS_ModuleLoad_Impl(const OS_object_token_t *token, const char *translated_
     fd = open(translated_path, O_RDONLY, 0);
     if (fd < 0)
     {
-        OS_DEBUG("OSAL: Error, cannot open application file: %s\n", translated_path);
+        OS_DEBUG("cannot open application file: %s\n", translated_path);
         return_code = OS_ERROR;
     }
     else
@@ -97,7 +97,7 @@ int32 OS_ModuleLoad_Impl(const OS_object_token_t *token, const char *translated_
 
         if (vxModuleId == (MODULE_ID)0)
         {
-            OS_DEBUG("OSAL: Error, cannot load module: %s\n", translated_path);
+            OS_DEBUG("cannot load module: %s\n", translated_path);
             return_code = OS_ERROR;
         }
         else

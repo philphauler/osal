@@ -104,7 +104,7 @@ int32 OS_ModuleLoad_Impl(const OS_object_token_t *token, const char *translated_
     }
     else
     {
-        OS_DEBUG("Error loading shared library: %s\n", dlerror());
+        OS_DEBUG("loading shared library: %s\n", dlerror());
     }
 
     return status;
