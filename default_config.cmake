@@ -85,6 +85,21 @@ set(OSAL_CONFIG_INCLUDE_NETWORK                 TRUE
     CACHE BOOL "Whether to include the Network API"
 )
 
+# OSAL_CONFIG_INCLUDE_DNS
+# ----------------------------------
+#
+# Whether to include the DNS support in Network API
+#
+# If set TRUE, the APIs which convert between strings and socket
+# addresses will include support for DNS
+#
+# This can be set FALSE for platforms which do not have DNS support
+# or where DNS lookups are not required
+#
+set(OSAL_CONFIG_INCLUDE_DNS                 FALSE
+    CACHE BOOL "Whether to include DNS support in Network API"
+)
+
 
 #
 # OSAL_CONFIG_INCLUDE_DYNAMIC_LOADER

@@ -111,12 +111,12 @@ int32 OS_GenericSymbolLookup_Impl(void *dl_handle, cpuaddr *SymbolAddress, const
      */
     if (dlError != NULL)
     {
-        OS_DEBUG("Error: %s: %s\n", SymbolName, dlError);
+        OS_DEBUG("%s: %s\n", SymbolName, dlError);
     }
     else if (Function == NULL)
     {
         /* technically not an error per POSIX, but in practice should not happen */
-        OS_DEBUG("Error: %s: dlsym() returned NULL\n", SymbolName);
+        OS_DEBUG("%s: dlsym() returned NULL\n", SymbolName);
     }
     else
     {
