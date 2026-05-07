@@ -46,14 +46,14 @@ jobs:
 
     steps:
       - name: Checkout MCDC Script
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           repository: nasa/cFS
           path: mcdc
           ref: dev
 
       - name: Checkout OSAL
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           path: source
 
@@ -107,7 +107,7 @@ jobs:
       - name: Archive unit test results
         # Upload if success or failure which supports skipping, unlike always()
         if: ${{ env.TESTS_RAN == 'true' }}
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: Unit test results
           path: |
@@ -116,7 +116,7 @@ jobs:
       - name: Archive mcdc results
         # Upload if success or failure which supports skipping, unlike always()
         if: ${{ env.TESTS_RAN == 'true' }}
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: MCDC results
           path: |
@@ -133,7 +133,7 @@ jobs:
 
     steps:
       - name: Checkout MCDC Script
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           repository: nasa/cFS
           path: mcdc
@@ -150,7 +150,7 @@ jobs:
           name: MCDC results
           path: main-branch-results
 
-      - uses: actions/download-artifact@v4
+      - uses: actions/download-artifact@v8
         with:
           name: MCDC results
 
@@ -196,7 +196,7 @@ jobs:
       - name: Archive mcdc comparison
         # Upload if success or failure which supports skipping, unlike always()
         if: success() || failure()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: MCDC main branch comparison
           path: |
