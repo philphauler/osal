@@ -63,9 +63,18 @@ if (OSAL_CONFIG_INCLUDE_NETWORK)
     list(APPEND RTEMS_IMPL_SRCLIST
         src/os-impl-network.c
         ../portable/os-impl-bsd-sockets.c
-        ../portable/os-impl-bsd-sockets-no-dns.c   # Use functions that do not require DNS
         ../portable/os-impl-bsd-select.c
     )
+
+    if (OSAL_CONFIG_INCLUDE_DNS)
+        list(APPEND RTEMS_IMPL_SRCLIST
+            ../portable/os-impl-bsd-sockets-dns.c   # Use functions that invoke DNS
+        )
+    else (OSAL_CONFIG_INCLUDE_DNS)
+        list(APPEND RTEMS_IMPL_SRCLIST
+            ../portable/os-impl-bsd-sockets-no-dns.c    # Use basic impl without DNS
+        )
+    endif(OSAL_CONFIG_INCLUDE_DNS)
 
     # In RTEMS 6+ the networking subsystem is not included with the default libs,
     # it needs to be explicitly added to the final link.  Note the "VERSION_GREATER_EQUAL"
