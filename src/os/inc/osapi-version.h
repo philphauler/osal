@@ -35,8 +35,8 @@
  * Development Build Macro Definitions
  */
 #define OS_BUILD_NUMBER    0
-#define OS_BUILD_BASELINE  "v7.0.0"
-#define OS_BUILD_DEV_CYCLE "v7.0.0" /**< @brief Development: Release name for current development cycle */
+#define OS_BUILD_BASELINE  "v7.0.1"
+#define OS_BUILD_DEV_CYCLE "v7.0.1" /**< @brief Development: Release name for current development cycle */
 #define OS_BUILD_CODENAME  "Draco"  /**< @brief: Development: Code name for the current build */
 
 /*
@@ -44,12 +44,12 @@
  */
 #define OS_MAJOR_VERSION 7 /*!< @brief Major version number */
 #define OS_MINOR_VERSION 0 /*!< @brief Minor version number */
-#define OS_REVISION      0 /*!< @brief Revision version number. Value of 99 indicates a development version.*/
+#define OS_REVISION      1 /*!< @brief Revision version number. Value of 99 indicates a development version.*/
 
 /**
  * @brief Last official release.
  */
-#define OS_LAST_OFFICIAL "v7.0.0"
+#define OS_LAST_OFFICIAL "v7.0.1"
 
 /*!
  * @brief Mission revision.
