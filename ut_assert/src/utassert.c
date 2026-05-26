@@ -180,7 +180,7 @@ void UtAssert_EndTest(void)
         }
         memcpy(&Local_SegmentCounters, &UT_SegmentCounters, sizeof(Local_SegmentCounters));
 
-        strncpy(Local_SegmentName, CurrentSegment, sizeof(Local_SegmentName)-1);
+        strncpy(Local_SegmentName, CurrentSegment, sizeof(Local_SegmentName) - 1);
     }
 
     memset(&UT_SegmentCounters, 0, sizeof(UT_SegmentCounters));
