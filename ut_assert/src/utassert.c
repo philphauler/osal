@@ -180,11 +180,7 @@ void UtAssert_EndTest(void)
         }
         memcpy(&Local_SegmentCounters, &UT_SegmentCounters, sizeof(Local_SegmentCounters));
 
-        /*
-         * note, strcpy is OK because both are fixed size buffers of the same size,
-         * and the null termination on CurrentSegment was locally enforced already
-         */
-        strcpy(Local_SegmentName, CurrentSegment);
+        strncpy(Local_SegmentName, CurrentSegment, sizeof(Local_SegmentName)-1);
     }
 
     memset(&UT_SegmentCounters, 0, sizeof(UT_SegmentCounters));
