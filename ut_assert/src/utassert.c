@@ -180,7 +180,12 @@ void UtAssert_EndTest(void)
         }
         memcpy(&Local_SegmentCounters, &UT_SegmentCounters, sizeof(Local_SegmentCounters));
 
-        strncpy(Local_SegmentName, CurrentSegment, sizeof(Local_SegmentName) - 1);
+        /*
+         * note, strcpy is OK because both are fixed size buffers of the same size,
+         * and the null termination on CurrentSegment was locally enforced already
+         * SAD: This should be ignored by CodeSonar.
+         */
+        strcpy(Local_SegmentName, CurrentSegment);
     }
 
     memset(&UT_SegmentCounters, 0, sizeof(UT_SegmentCounters));
