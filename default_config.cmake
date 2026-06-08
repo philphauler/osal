@@ -396,7 +396,7 @@ set(OSAL_CONFIG_QUEUE_MAX_DEPTH         50
 )
 
 # The maximum number of CPUs supported.
-set(OSAL_CONFIG_MAX_CPUS                  8
+set(OSAL_CONFIG_MAX_CPUS                  1
     CACHE STRING "Maximum number of CPUs supported"
 )
 
