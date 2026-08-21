@@ -30,7 +30,7 @@
 
 #include "osconfig.h"
 #include <pthread.h>
-#include <taskLib.h> 
+#include <taskLib.h>
 
 typedef void *(*PthreadFuncPtr_t)(void *entry_arg);
 

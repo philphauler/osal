@@ -138,13 +138,13 @@ static void *OS_PthreadTaskEntry(void *arg)
 
     /* cppcheck-suppress unreadVariable // intentional use of other union member */
     local_arg.opaque_arg = arg;
-    
+
     /* Get the OSAL array index for this task and save its true VxWorks TASK_ID */
     if (OS_ObjectIdToArrayIndex(OS_OBJECT_TYPE_OS_TASK, local_arg.id, &array_index) == OS_SUCCESS)
     {
         OS_impl_task_table[array_index].vxid = taskIdSelf();
-    }    
-    
+    } 
+
     OS_TaskEntryPoint(local_arg.id); /* Never returns */
 
     return NULL;

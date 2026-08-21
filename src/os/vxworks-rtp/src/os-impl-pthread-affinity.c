@@ -124,7 +124,7 @@ int32 OS_TaskAffinityGetAffinity_Impl(const OS_object_token_t *token, OS_cpuset_
     }
 
     CPUSET_ZERO(local_cpuset);
-    
+
     /* Pass the true native TASK_ID to VxWorks */
     return_value = taskCpuAffinityGet(impl->vxid, &local_cpuset);
 
