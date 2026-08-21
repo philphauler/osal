@@ -143,7 +143,7 @@ static void *OS_PthreadTaskEntry(void *arg)
     if (OS_ObjectIdToArrayIndex(OS_OBJECT_TYPE_OS_TASK, local_arg.id, &array_index) == OS_SUCCESS)
     {
         OS_impl_task_table[array_index].vxid = taskIdSelf();
-    } 
+    }
 
     OS_TaskEntryPoint(local_arg.id); /* Never returns */
 
